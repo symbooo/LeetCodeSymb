@@ -26,6 +26,7 @@ class AddTwoNumbers:
         Explanation: 342 + 465 = 807.
     """
 
+    # 最开始实现的,用列表冒充了链表，惭愧惭愧
     def symb(self, l1, l2):
         """
         :type l1:  ListNode
@@ -45,7 +46,6 @@ class AddTwoNumbers:
             result.append(carry)
         return result
 
-    '''
     # 高赞实现
     def addTwoNumbers(self, l1, l2):
         carry = 0
@@ -62,7 +62,6 @@ class AddTwoNumbers:
             n.next = ListNode(val)
             n = n.next
         return root.next
-    '''
 
 
 if __name__ == '__main__':
