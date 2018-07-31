@@ -7,7 +7,7 @@ YES, WE CAN!
 @File        : ReverseInteger.py
 @Site        : 
 @Project     : LeetCodeSymb
-@Note        : [describe how to use it]
+@Note        : 翻转32比特位整数的数字部分
 """
 # Enjoy Your Code
 
