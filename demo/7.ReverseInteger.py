@@ -4,7 +4,7 @@
 YES, WE CAN!
 @Time        : 2018/7/31 22:34
 @Author      : 兰兴宝 echolan@126.com
-@File        : ReverseInteger.py
+@File        : 7.ReverseInteger.py
 @Site        : 
 @Project     : LeetCodeSymb
 @Note        : 翻转32比特位整数的数字部分

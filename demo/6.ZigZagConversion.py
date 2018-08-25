@@ -4,7 +4,7 @@
 YES, WE CAN!
 @Time        : 2018/7/26 21:35
 @Author      : 兰兴宝 echolan@126.com
-@File        : ZigZagConversion.py
+@File        : 6.ZigZagConversion.py
 @Site        : 
 @Project     : LeetCodeSymb
 @Note        : [describe how to use it]

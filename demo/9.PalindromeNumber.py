@@ -4,7 +4,7 @@
 YES, WE CAN!
 @Time        : 2018/8/24 0:09
 @Author      : 兰兴宝 echolan@126.com
-@File        : PalindromeNumber.py
+@File        : 9.PalindromeNumber.py
 @Site        : 
 @Project     : LeetCodeSymb
 @Note        : [describe how to use it]

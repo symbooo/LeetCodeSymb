@@ -4,7 +4,7 @@
 YES, WE CAN!
 @Time        : 2018/8/23 22:16
 @Author      : 兰兴宝 echolan@126.com
-@File        : StringToInteger.py
+@File        : 8.StringToInteger.py
 @Site        : 
 @Project     : LeetCodeSymb
 @Note        : [describe how to use it]

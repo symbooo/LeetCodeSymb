@@ -4,7 +4,7 @@
 YES, WE CAN!
 @Time        : 2018/7/19 15:39
 @Author      : 兰兴宝 echolan@126.com
-@File        : TwoSum.py
+@File        : 1.TwoSum.py
 @Site        : 
 @Project     : LeetCodeSymb
 @Note        : 两数之和
