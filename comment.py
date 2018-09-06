@@ -14,5 +14,12 @@ YES, WE CAN!
 
 class ListNode:
     def __init__(self, x):
+        self.__values = x
         self.val = x
         self.next = None
+        self.set(x)
+
+    def set(self, values):
+        if values:
+            self.val = values[0]
+            self.next = ListNode(values[1:]) if values[1:] else None
