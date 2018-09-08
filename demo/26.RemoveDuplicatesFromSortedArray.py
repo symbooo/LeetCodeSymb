@@ -66,4 +66,3 @@ class Solution:
         :rtype: int
         """
         return self.symb(nums)
-
