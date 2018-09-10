@@ -33,7 +33,7 @@ class MedianOfSortedArrays:
         :type nums2: List[int]
         :rtype: float
         """
-        # 待完善
+        # 待完善, 2018.09.10
         # m, n = len(nums1), len(nums2)
         # median_nums1 = nums1[m // 2]
         # median_nums2 = nums2[n // 2]
