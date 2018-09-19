@@ -41,7 +41,22 @@ class Solution:
         :type divisor: int
         :rtype: int
         """
-        pass
+        flag = (dividend < 0) is (divisor < 0)
+        dividend, divisor = abs(dividend), abs(divisor)
+        ans = 0
+        while dividend >= divisor:
+            step = 1
+            mod = divisor
+            while dividend >= mod:
+                dividend -= mod
+                ans += step
+                mod <<= 1
+                step <<= 1
+
+        if not flag:
+            ans = -ans
+
+        return min(max(-2147483648, ans), 2147483647)
 
     # 高赞答案
     def divide(self, dividend, divisor):
