@@ -43,31 +43,45 @@ class MedianOfSortedArrays:
         #
         # if median_nums1 <= median_nums2:
         #     return self.symb(nums1[m // 2:], nums2[: n // 2])
-        m, n = len(nums1), len(nums2)
-        if m > n:
-            m, n, nums1, nums2 = n, m, nums2, nums1
-        l = (m + n) // 2 + 1
-        index_a, index_b = m // 2, n // 2
-        a_start, b_start = 0, 0
-        while True:
-            if nums1[index_a - 1] < nums2[index_b] and nums2[index_b - 1] < nums1[index_a]:
-                break
-            if nums1[index_a] < nums2[index_b]:
-                l -= index_a - a_start
-                a_start = index_a
-                plus = (m - index_a) // 2
-                index_a += plus if plus else 1
-                index_b -= plus if plus else 1
-            else:
-                l -= index_b - b_start
-                b_start = index_b
-                sub = (index_a - a_start) // 2
-                index_a -= sub if sub else 1
-                index_b += sub if sub else 1
-        result = min(nums1[index_a], nums2[index_b])
-        if (m + n) % 2 == 0:
-            result = (result + max(nums1[index_a - 1], nums2[index_b - 1])) / 2
-        return result
+        l1, l2 = len(nums1) - 1, len(nums2) - 1
+        if l1 > l2:
+            l1, l2, nums1, nums2 = l2, l1, nums2, nums1
+        if l1 == -1:
+            return float(0 if not nums2
+                         else (nums2[l2 // 2] if (l2 % 2 == 0)
+                               else (nums2[l2 // 2] + nums2[l2 // 2 + 1]) / 2))
+        step1, step2 = l1 // 2, l2 // 2
+        while step1 < l1:
+            pass
+
+
+
+
+        # m, n = len(nums1), len(nums2)
+        # if m > n:
+        #     m, n, nums1, nums2 = n, m, nums2, nums1
+        # l = (m + n) // 2 + 1
+        # index_a, index_b = m // 2, n // 2
+        # a_start, b_start = 0, 0
+        # while True:
+        #     if nums1[index_a - 1] < nums2[index_b] and nums2[index_b - 1] < nums1[index_a]:
+        #         break
+        #     if nums1[index_a] < nums2[index_b]:
+        #         l -= index_a - a_start
+        #         a_start = index_a
+        #         plus = (m - index_a) // 2
+        #         index_a += plus if plus else 1
+        #         index_b -= plus if plus else 1
+        #     else:
+        #         l -= index_b - b_start
+        #         b_start = index_b
+        #         sub = (index_a - a_start) // 2
+        #         index_a -= sub if sub else 1
+        #         index_b += sub if sub else 1
+        # result = min(nums1[index_a], nums2[index_b])
+        # if (m + n) % 2 == 0:
+        #     result = (result + max(nums1[index_a - 1], nums2[index_b - 1])) / 2
+        # return result
 
 
     # # 高赞实现
