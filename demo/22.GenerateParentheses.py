@@ -10,6 +10,7 @@ YES, WE CAN!
 @Note        : [describe how to use it]
 """
 # Enjoy Your Code
+import copy
 
 
 class Solution:
@@ -46,22 +47,24 @@ class Solution:
             return ['()'] if n else ['']
 
         answer = [
-            ['(', ')'],
+            [['(', ')'], 0 ],
         ]
         nums = 1
         while nums < n:
+            length = len(answer)
             result = []
-            for i, ans in enumerate(answer):
-                in_place = i + nums
-                while in_place <= 2 * nums:
-                    l = ans.copy()
+            insert_time = 1        # 记录插入次数
+            for i in range(length):
+                in_place = answer[i][1] + insert_time    # 插入位置
+                while in_place <= nums * 2:
+                    l = copy.deepcopy(answer[i][0])
                     l.insert(in_place, ')')
                     l.insert(in_place, '(')
-                    result.append(l)
+                    result.append([l, in_place])
                     in_place += 1
             answer = result
             nums += 1
-        return [''.join(a) for a in answer]
+        return [''.join(a[0]) for a in answer]
 
     def generateParenthesis1(self, n):
         """
@@ -94,7 +97,14 @@ class Solution:
 
 
 if __name__ == '__main__':
+    import time
     solution = Solution()
-    examples = [3, 4, ]
+    examples = [3, 4, 6, 100]
     for example in examples:
+        t1 = time.time()
         print(example, solution.symb(example))
+        t2 = time.time()
+        print(example, solution.generateParenthesis(example))
+        t3 = time.time()
+        print(f'symb: {t2 - t1}, gp: {t3 - t2},  gap:{t3 + t1 - 2 * t2}')
+
