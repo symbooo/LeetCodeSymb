@@ -14,7 +14,7 @@ YES, WE CAN!
 
 class MedianOfSortedArrays:
     """
-    给定两个长度分别未m，n的有序数组nums1，nums2， 查找他们的中位数，要求时间复杂度为 O(log(m + n).
+    给定两个长度分别为m，n的有序数组nums1，nums2， 查找他们的中位数，要求时间复杂度为 O(log(m + n).
     There are two sorted arrays nums1 and nums2 of size m and n respectively.
     Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).
     Example 1:
@@ -43,16 +43,30 @@ class MedianOfSortedArrays:
         #
         # if median_nums1 <= median_nums2:
         #     return self.symb(nums1[m // 2:], nums2[: n // 2])
-        l1, l2 = len(nums1) - 1, len(nums2) - 1
+        l1, l2 = len(nums1), len(nums2)
         if l1 > l2:
             l1, l2, nums1, nums2 = l2, l1, nums2, nums1
         if l1 == -1:
             return float(0 if not nums2
                          else (nums2[l2 // 2] if (l2 % 2 == 0)
-                               else (nums2[l2 // 2] + nums2[l2 // 2 + 1]) / 2))
-        step1, step2 = l1 // 2, l2 // 2
-        while step1 < l1:
+                               else (nums2[l2 // 2] + nums2[l2 // 2 - 1]) / 2))
+        step1, step2 = 0, 0
+        mid_index = (l1 + l2) / 2
+        while step1 + step2 < mid_index and step1 < l1 and step2 < l2:
+            if nums1[step1] < nums2[step2]:
+                step1 += 1
+            else:
+                step2 += 1
+
+        else:
             pass
+        if step1 < l1 and step2 < l2:
+            pass
+        elif step1 < l1:
+            pass
+        else:
+            pass
+
 
 
 
