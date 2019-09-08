@@ -14,7 +14,7 @@ YES, WE CAN!
 
 class MedianOfSortedArrays:
     """
-    给定两个长度分别未m，n的有序数组nums1，nums2， 查找他们的中位数，要求时间复杂度为 O(log(m + n).
+    给定两个长度分别为m，n的有序数组nums1，nums2， 查找他们的中位数，要求时间复杂度为 O(log(m + n).
     There are two sorted arrays nums1 and nums2 of size m and n respectively.
     Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).
     Example 1:
@@ -33,7 +33,7 @@ class MedianOfSortedArrays:
         :type nums2: List[int]
         :rtype: float
         """
-        # 待完善
+        # 待完善, 2018.09.10
         # m, n = len(nums1), len(nums2)
         # median_nums1 = nums1[m // 2]
         # median_nums2 = nums2[n // 2]
@@ -43,31 +43,59 @@ class MedianOfSortedArrays:
         #
         # if median_nums1 <= median_nums2:
         #     return self.symb(nums1[m // 2:], nums2[: n // 2])
-        m, n = len(nums1), len(nums2)
-        if m > n:
-            m, n, nums1, nums2 = n, m, nums2, nums1
-        l = (m + n) // 2 + 1
-        index_a, index_b = m // 2, n // 2
-        a_start, b_start = 0, 0
-        while True:
-            if nums1[index_a - 1] < nums2[index_b] and nums2[index_b - 1] < nums1[index_a]:
-                break
-            if nums1[index_a] < nums2[index_b]:
-                l -= index_a - a_start
-                a_start = index_a
-                plus = (m - index_a) // 2
-                index_a += plus if plus else 1
-                index_b -= plus if plus else 1
+        l1, l2 = len(nums1), len(nums2)
+        if l1 > l2:
+            l1, l2, nums1, nums2 = l2, l1, nums2, nums1
+        if l1 == -1:
+            return float(0 if not nums2
+                         else (nums2[l2 // 2] if (l2 % 2 == 0)
+                               else (nums2[l2 // 2] + nums2[l2 // 2 - 1]) / 2))
+        step1, step2 = 0, 0
+        mid_index = (l1 + l2) / 2
+        while step1 + step2 < mid_index and step1 < l1 and step2 < l2:
+            if nums1[step1] < nums2[step2]:
+                step1 += 1
             else:
-                l -= index_b - b_start
-                b_start = index_b
-                sub = (index_a - a_start) // 2
-                index_a -= sub if sub else 1
-                index_b += sub if sub else 1
-        result = min(nums1[index_a], nums2[index_b])
-        if (m + n) % 2 == 0:
-            result = (result + max(nums1[index_a - 1], nums2[index_b - 1])) / 2
-        return result
+                step2 += 1
+
+        else:
+            pass
+        if step1 < l1 and step2 < l2:
+            pass
+        elif step1 < l1:
+            pass
+        else:
+            pass
+
+
+
+
+
+        # m, n = len(nums1), len(nums2)
+        # if m > n:
+        #     m, n, nums1, nums2 = n, m, nums2, nums1
+        # l = (m + n) // 2 + 1
+        # index_a, index_b = m // 2, n // 2
+        # a_start, b_start = 0, 0
+        # while True:
+        #     if nums1[index_a - 1] < nums2[index_b] and nums2[index_b - 1] < nums1[index_a]:
+        #         break
+        #     if nums1[index_a] < nums2[index_b]:
+        #         l -= index_a - a_start
+        #         a_start = index_a
+        #         plus = (m - index_a) // 2
+        #         index_a += plus if plus else 1
+        #         index_b -= plus if plus else 1
+        #     else:
+        #         l -= index_b - b_start
+        #         b_start = index_b
+        #         sub = (index_a - a_start) // 2
+        #         index_a -= sub if sub else 1
+        #         index_b += sub if sub else 1
+        # result = min(nums1[index_a], nums2[index_b])
+        # if (m + n) % 2 == 0:
+        #     result = (result + max(nums1[index_a - 1], nums2[index_b - 1])) / 2
+        # return result
 
 
     # # 高赞实现
